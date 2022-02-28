@@ -8,8 +8,8 @@ const server = express()
 
 server.use(express.json())
 server.use('/api/auth',userRouter)
-server.use('/api/auth', postsRouter)
-server.use('/api/auth', profileRouter)
+server.use('/api', postsRouter)
+server.use('/api', profileRouter)
 
 server.get('/',(req,res)=>{
   res.json('Welcome to forum-backend')
