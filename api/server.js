@@ -6,7 +6,7 @@ const postsRouter = require('./posts/posts_router')
 const server = express()
 
 server.use(express.json())
-server.use('/api/auth',userRouter)
+server.use('/api',userRouter)
 server.use('/api/auth', postsRouter)
 
 server.get('/',(req,res)=>{
