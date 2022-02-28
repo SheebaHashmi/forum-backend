@@ -7,7 +7,7 @@ const profileRouter = require('./profile/profile_router')
 const server = express()
 
 server.use(express.json())
-server.use('/api',userRouter)
+server.use('/api/auth',userRouter)
 server.use('/api/auth', postsRouter)
 server.use('/api/auth', profileRouter)
 
