@@ -9,6 +9,13 @@ async function getAllPosts(username){
     return response
 }
 
+async function getPostByPost_id(post_id){
+    const response = await db('posts as p')
+            .where('p.post_id',post_id)
+
+    return response
+}
+
 async function addPost(username,body){
     const {user_id} = await User.getUserBy({username:username})
 
@@ -24,9 +31,26 @@ async function addPost(username,body){
     return response
 }
 
+async function updatePost(post_id,changes){
+    await db('posts as p')
+        .where('p.post_id', post_id)
+        .update(changes)
+
+    return getPostByPost_id(post_id)
+}
+
+function removePost(post_id){
+    return db('posts')
+        .where('post_id',post_id)
+        .del()
+}
+
 
 module.exports = {
     getAllPosts,
-    addPost
+    getPostByPost_id,
+    addPost,
+    updatePost,
+    removePost
 }
 

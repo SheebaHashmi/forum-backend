@@ -43,4 +43,5 @@ router.post('/login', checkUserExists, async(req,res,next) => {
     }
 })
 
+
 module.exports = router

@@ -2,12 +2,14 @@ const express = require('express')
 
 const userRouter = require('./users/users_router')
 const postsRouter = require('./posts/posts_router')
+const profileRouter = require('./profile/profile_router')
 
 const server = express()
 
 server.use(express.json())
 server.use('/api',userRouter)
 server.use('/api/auth', postsRouter)
+server.use('/api/auth', profileRouter)
 
 server.get('/',(req,res)=>{
   res.json('Welcome to forum-backend')

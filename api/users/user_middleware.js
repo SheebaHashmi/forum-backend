@@ -26,7 +26,24 @@ const checkUserExists = async (req,res,next) => {
     }
 }
 
+const checkUserProfileExists = async (req,res,next) => {
+    try{
+        const {username} = req.params
+        const userExists = await User.getUserBy({username:username})
+        if(!userExists){
+            next({status:404,message:"User not found"})
+        }else{
+            req.user = userExists
+            next()
+        }
+    }
+    catch(err){
+        next(err)
+    }
+}
+
 module.exports = {
     checkUserExists,
-    checkRequestBody
+    checkRequestBody,
+    checkUserProfileExists
 }
