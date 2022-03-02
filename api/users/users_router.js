@@ -32,10 +32,10 @@ router.post('/register',checkRequestBody, async (req,res,next) => {
 
 router.post('/login', checkUserExists, async(req,res,next) => {
     try{
-        const {username,password} = req.body
+        const {password} = req.body
         if(bcrypt.compareSync(password,req.user.password)){
             const token = makeToken(req.user)
-            res.status(200).json({message: `Welcome ${username}`,token})
+            res.status(200).json({user:req.user,token})
         }
     }
     catch(err){
