@@ -1,4 +1,4 @@
-# Forume-Backend
+# PostIt-Backend
 
 ## Endpoint Documentation 
 
