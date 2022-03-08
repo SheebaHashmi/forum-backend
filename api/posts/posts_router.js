@@ -25,7 +25,7 @@ router.get('/:username/posts', restricted, async (req, res, next) => {
         }
 })
 
-router.get('/:username/post/:post_id', restricted, async (req, res, next) => {
+router.get('/:username/posts/:post_id', restricted, async (req, res, next) => {
         try {
                 const { post_id } = req.params
                 const response = await getPostByPost_id(post_id)
@@ -48,7 +48,7 @@ router.post('/:username/post', restricted,checkPostBody, async (req, res, next) 
         }
 })
 
-router.delete('/:username/post/:id', restricted, checkPostExists, async (req, res, next) => {
+router.delete('/:username/posts/:id', restricted, checkPostExists, async (req, res, next) => {
         try {
                 res.json(req.post)
                 await removePost(req.params.id)
@@ -58,7 +58,7 @@ router.delete('/:username/post/:id', restricted, checkPostExists, async (req, re
         }
 })
 
-router.put('/:username/post/:id', restricted,checkPostExists, async (req, res, next) => {
+router.put('/:username/posts/:id', restricted,checkPostExists, async (req, res, next) => {
         try {
                 const { id } = req.params
                 const response = await updatePost(id,req.body)
