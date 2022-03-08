@@ -87,7 +87,7 @@ Endpoint starting with /api/auth are related to login/signup process.
 ]
 
 ```
-**Endpoint**: `[GET] /api/:username/post/:post_id`
+**Endpoint**: `[GET] /api/:username/posts/:post_id`
 
 **Output**: on success, returns an object in the following format.
 
@@ -131,7 +131,7 @@ Endpoint starting with /api/auth are related to login/signup process.
 
 #### Remove post
 
-**Endpoint**: `[DELETE] /api/:username/post/:id`
+**Endpoint**: `[DELETE] /api/:username/posts/:id`
 
 **Output**: on success, returns an object in the following format.
 
@@ -149,7 +149,7 @@ Endpoint starting with /api/auth are related to login/signup process.
 
 #### Update Post 
 
-**Endpoint**: `[PUT] /api/:username/post/:id`
+**Endpoint**: `[PUT] /api/:username/posts/:id`
 
 **Input**: pass in an object containing the following login information.
 
